@@ -14,6 +14,9 @@ using Minisat::Solver;
 using Minisat::Var;
 using Minisat::mkLit;
 using Minisat::lbool;
+using Minisat::l_False;
+using Minisat::l_True;
+using Minisat::l_Undef;
 
 extern "C" value minisat_new_solver(value unit) {
   Solver *solver = new Solver();
