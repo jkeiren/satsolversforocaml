@@ -37,7 +37,7 @@ endif
 
 ifeq "$(WITH_MINISAT)" "YES"
 
-MINISATOBJS=$(OCAML_DIR)/libasmrun.a $(SATSOLVERSOBJ)/MiniSATWrap.o $(SATSOLVERSOBJ)/minisat.cmx $(SATSOLVERSOBJ)/minisatwrapper.cmx $(MINISATDIR)/simp/lib.a -cclib -lz -
+MINISATOBJS=$(OCAML_DIR)/libasmrun.a $(SATSOLVERSOBJ)/MiniSATWrap.o $(SATSOLVERSOBJ)/minisat.cmx $(SATSOLVERSOBJ)/minisatwrapper.cmx $(MINISATDIR)/lib/libminisat.a -cclib -lz -
 
 HASSAT=YES
 endif

@@ -92,7 +92,7 @@ minisat: satwrapper satsolvers $(OBJDIR)/MiniSATWrap.o $(OBJDIR)/minisat.cmi $(O
 #	$(CPP) -c -I $(MINISATDIR) -I $(MINISATDIR)/mtl $(MINISATDIR)/simp/SimpSolver.cc -o $(OBJDIR)/SimpSolver.o
 
 $(OBJDIR)/MiniSATWrap.o:
-	$(CPP) -D__STDC_LIMIT_MACROS -c -I $(SRCDIR)/minisat/backend -I $(OCAML_DIR) -I $(MINISATDIR) -o $@ $(SRCDIR)/minisat/backend/MiniSATWrap.cc
+	$(CPP) -D__STDC_LIMIT_MACROS -c -I $(SRCDIR)/minisat/backend -I $(OCAML_DIR) -I $(MINISATDIR)/include -I $(MINISATDIR)/include/minisat -o $@ $(SRCDIR)/minisat/backend/MiniSATWrap.cc
 
 $(OBJDIR)/minisat.cmi:
 	$(OCAMLOPT) -I $(OBJDIR) -c -o $@ $(SRCDIR)/minisat/minisat.mli
@@ -106,7 +106,7 @@ $(OBJDIR)/minisatwrapper.cmi:
 $(OBJDIR)/minisatwrapper.cmx:
 	$(OCAMLOPT) -I $(OBJDIR) -c -o $@ $(SRCDIR)/minisat/minisatwrapper.ml
 
-MINISATOBJS=$(OBJDIR)/MiniSATWrap.o $(OBJDIR)/minisat.cmx $(OBJDIR)/minisatwrapper.cmx $(MINISATDIR)/simp/lib.a
+MINISATOBJS=$(OBJDIR)/MiniSATWrap.o $(OBJDIR)/minisat.cmx $(OBJDIR)/minisatwrapper.cmx $(MINISATDIR)/lib/libminisat.a
 MINISATFLAGS=-cclib -lz
 
 EXTERNALSATOBJS += $(MINISATOBJS)
